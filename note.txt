@@ -1,0 +1,7 @@
+<!-- <%if(day == 0 || day == 6){%>
+   <h1 style = "color : blue">It's <%=day%> today<%=vr%></h1>
+<%} else {%>
+   <h1 style = "color : yellow">It's <%=day%> today<%=vr%></h1>
+<%}%> -->
+
+<%const ar = [day, it._id]%>

@@ -7,7 +7,8 @@ const date = require(__dirname+'/date.js');
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', false);
 
-mongoose.connect('mongodb://127.0.0.1:27017/todoDB', (err)=>{
+// mongoose.connect('mongodb://127.0.0.1:27017/todoDB', (err)=>{
+mongoose.connect('mongodb+srv://todo:pro@cluster0.uie3nbq.mongodb.net/todoDB', (err)=>{
   if(err) {
     console.log(err);
   } else {
@@ -112,7 +113,7 @@ app.post('/delete', (req, res)=>{
   const checkedItemId = req.body.checkbox;
   const title = req.body.title;
 
-  if(title == 'Work item') {
+  if(title == 'Work List') {
     workDB.findByIdAndRemove(checkedItemId, (er)=>{
       console.log("Deleted Successfully");
       res.redirect('/work');

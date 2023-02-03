@@ -133,6 +133,10 @@ app.post('/delete', (req, res)=>{
   // workDB.deleteOne({_id: checkedItemId}, (er)=>{
 });
 
+// render is used to open ejs file
+app.get('/about', (req, res)=>{
+  res.render('about');
+});
 
 // creating dynamic route
 app.get("/:parName", (req, res)=>{
@@ -160,11 +164,11 @@ app.get("/:parName", (req, res)=>{
 });
 
 
-// render is used to open ejs file
-app.get('/about', (req, res)=>{
-  res.render('about');
-});
-
-app.listen(7000, ()=>{
+// process.env.PORT is used while hosting the server online
+var port = process.env.PORT;
+if(port == null || port == "") {
+  port = 7000;
+}
+app.listen(port, ()=>{
   console.log("Server Established");
 });

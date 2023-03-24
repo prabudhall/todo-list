@@ -7,8 +7,14 @@ const date = require(__dirname+'/date.js');
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', false);
 
+if(process.env.NODE_ENV !== 'production'){
+    require('dotenv').config();
+}
+
+mgdb_uri = process.env.DB_URI;
+
 // mongoose.connect('mongodb://127.0.0.1:27017/todoDB', (err)=>{
-mongoose.connect('mongodb+srv://todo:pro@cluster0.uie3nbq.mongodb.net/todoDB', (err)=>{
+mongoose.connect(mgdb_uri, (err)=>{
   if(err) {
     console.log(err);
   } else {
